@@ -94,7 +94,7 @@ class BlazingRodGun extends PluginBase implements Listener
 			$entity = $event->getEntity();
 			if ($player instanceof Player && $event->getCause() === EntityDamageEvent::CAUSE_PROJECTILE) {
 				$event->setDamage(5);
-				$event->getEntity()->getLevel()->addSound(new AnvilFallSound($event->getEntity()));
+				$event->getEntity()->getLevel()->addSound(new AnvilFallSound($event->getEntity()), $event->getEntity()->getLevel()->getPlayers());
 			}
 		}
 	}
@@ -103,10 +103,10 @@ class BlazingRodGun extends PluginBase implements Listener
 	{
 		$player = $ev->getPlayer();
 		if ($ev->getPlayer()->getInventory()->getItemInHand()->getId() === 346) {
-			$ev->getPlayer()->sendTip(TextFormat::BLUE . "Vote GUN");
+			$ev->getPlayer()->sendTip(TextFormat::GOLD . "Vote GUN");
 		}
 		if ($ev->getPlayer()->getInventory()->getItemInHand()->getId() === 351) {
-			$ev->getPlayer()->sendTip(TextFormat::BLUE . "Bullets");
+			$ev->getPlayer()->sendTip(TextFormat::RED . "Bullets");
 		}
 	}
 
