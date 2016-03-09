@@ -74,7 +74,7 @@ class BlazingRodGun extends PluginBase implements Listener
 								])
 							]);
 
-							$f = 1.5;
+							$f = 2.5; // Nice speed
 							$snowball = Entity::createEntity("Snowball", $player->chunk, $nbt, $player);
 							$snowball->setMotion($snowball->getMotion()->multiply($f));
 							$snowball->spawnToAll();
